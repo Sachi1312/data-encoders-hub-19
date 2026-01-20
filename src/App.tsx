@@ -1,7 +1,7 @@
 function App() {
   return (
     <div style={{ color: "white", padding: "40px" }}>
-      ✅ App is rendering
+      🚀 Router + App OK
     </div>
   );
 }
