@@ -20,9 +20,9 @@ const FlipCard = ({
 
   return (
     <div
-      className={`perspective-1000 cursor-pointer ${className}`}
+      className={`cursor-pointer ${className}`}
       onClick={() => setIsFlipped(!isFlipped)}
-      style={{ perspective: "1000px" }}
+      style={{ perspective: "1000px", height: "100%", width: "100%" }}
     >
       <motion.div
         className="relative h-full w-full"
@@ -32,31 +32,35 @@ const FlipCard = ({
         style={{ transformStyle: "preserve-3d" }}
       >
         {/* Front Side */}
-        <div
-          className="absolute inset-0 overflow-hidden rounded-2xl"
-          style={{ backfaceVisibility: "hidden" }}
+        <motion.div
+          className="absolute inset-0 overflow-hidden rounded-2xl border border-primary/30"
+          style={{ 
+            backfaceVisibility: "hidden", 
+            WebkitBackfaceVisibility: "hidden",
+          }}
         >
           <img
             src={frontImage}
             alt={frontAlt}
-            className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+            className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-          <div className="absolute bottom-4 left-4 right-4">
-            <p className="text-sm text-primary/80">Click to flip</p>
+          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
+          <div className="absolute bottom-4 left-0 right-0 text-center">
+            <p className="text-sm font-medium text-primary">Click to flip →</p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Back Side */}
-        <div
+        <motion.div
           className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden rounded-2xl border border-primary/30 p-6 text-center"
           style={{
             backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
-            background: "var(--gradient-card)",
+            background: "linear-gradient(135deg, hsl(222 47% 12%), hsl(222 47% 8%))",
           }}
         >
-          <div className="glow-box mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/20">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/20" style={{ boxShadow: "0 0 40px hsl(187 100% 50% / 0.3)" }}>
             <span className="font-display text-2xl font-bold text-primary">DE</span>
           </div>
           <h3 className="mb-3 font-display text-xl font-bold text-foreground">
@@ -66,7 +70,7 @@ const FlipCard = ({
             {backDescription}
           </p>
           <p className="mt-4 text-xs text-primary/60">Click to flip back</p>
-        </div>
+        </motion.div>
       </motion.div>
     </div>
   );
