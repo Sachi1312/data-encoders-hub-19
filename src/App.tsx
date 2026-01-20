@@ -1,9 +1,7 @@
+import Home from "./pages/Home";
+
 function App() {
-  return (
-    <div style={{ color: "white", padding: "40px" }}>
-      🚀 Router + App OK
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
