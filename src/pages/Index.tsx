@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Code2, Users, Lightbulb, Rocket, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
+import FlipCard from "@/components/FlipCard";
 import heroBg from "@/assets/hero-bg.jpg";
 import teamCollab from "@/assets/team-collab.jpg";
 
@@ -42,8 +43,7 @@ const Index = () => {
           <img
             src={heroBg}
             alt="Data Encoders Hero"
-            className="clickable-image h-full w-full object-cover opacity-40"
-            onClick={() => window.open(heroBg, "_blank")}
+            className="h-full w-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
         </div>
@@ -87,12 +87,27 @@ const Index = () => {
             </div>
           </motion.div>
 
+          {/* Flip Card in Hero */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="mt-12 h-[250px] w-full max-w-md"
+          >
+            <FlipCard
+              frontImage={heroBg}
+              frontAlt="Data Encoders Club"
+              backTitle="About Data Encoders"
+              backDescription="Founded in 2020, we're a thriving community of 100+ tech enthusiasts. We host weekly workshops, compete in hackathons, and build real-world projects that make an impact on our campus and beyond."
+            />
+          </motion.div>
+
           {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="mt-16 grid grid-cols-3 gap-8 md:gap-16"
+            className="mt-12 grid grid-cols-3 gap-8 md:gap-16"
           >
             {[
               { number: "100+", label: "Active Members" },
@@ -163,12 +178,13 @@ const Index = () => {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              className="h-[400px]"
             >
-              <img
-                src={teamCollab}
-                alt="Team collaboration at hackathon"
-                className="clickable-image rounded-2xl"
-                onClick={() => window.open(teamCollab, "_blank")}
+              <FlipCard
+                frontImage={teamCollab}
+                frontAlt="Team collaboration at hackathon"
+                backTitle="Our Projects"
+                backDescription="From AI-powered campus apps to data visualization dashboards, our members have built 50+ innovative projects. Recent highlights include a smart attendance system, a college event recommendation engine, and an open-source coding practice platform."
               />
             </motion.div>
 
