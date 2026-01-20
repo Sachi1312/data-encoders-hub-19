@@ -17,7 +17,7 @@ https://sachi1312.github.io/dataencoders/
 - Tailwind CSS
 - shadcn/ui
 
-## 📦 Setup (Optional – for developers)
+## 📦 Setup 
 ```bash
 git clone https://github.com/Sachi1312/dataencoders.git
 cd dataencoders
