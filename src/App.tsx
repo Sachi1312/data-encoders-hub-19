@@ -1,5 +1,7 @@
 // ✅ correct
+// ✅ correct
 import Home from "./pages/Index";
+
 
 
 function App() {
